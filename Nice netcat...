@@ -1,0 +1,17 @@
+# Read ASCII numbers from the file and convert to English text
+
+# Provide the path to the input file
+input_file = '/path/to/file.txt'
+
+def convert_ascii_to_text(ascii_list):
+    return ''.join(chr(int(ascii_num)) for ascii_num in ascii_list)
+
+try:
+    with open(input_file, 'r') as file:
+        ascii_numbers = [line.strip() for line in file]
+        english_text = convert_ascii_to_text(ascii_numbers)
+        print(english_text)
+except FileNotFoundError:
+    print("File not found. Please provide the correct path to the input file.")
+except ValueError:
+    print("Invalid ASCII number found in the input file.")
